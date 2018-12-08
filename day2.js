@@ -1,7 +1,7 @@
 var fs = require('fs');
 
 fs.readFile('./02.txt', 'utf8', function(err, contents) {
-  console.log(daytwo(contents))
+  console.log(otherdaytwo(contents))
 });
 
 function daytwo(str) {
@@ -37,11 +37,35 @@ function daytwo(str) {
         }
       }
     }
-
-
   }
-
   return two * three
 }
 
-// daytwo("abcdef\nbababc\nabbcde\nabcccd\naabcdd\nabcdee\nababab")
+function otherdaytwo(str) {
+  let arr = str.split("\n")
+  arr.pop()
+  let counter = 0
+  let diff = null
+  console.log(diff)
+  for (let i = 0; i < arr.length; i++) {
+    let elArr = arr[i].split("")
+    for (let j = 1; j < arr.length; j++) {
+      let other = arr[j].split("")
+
+      let k = 0
+      while (k < other.length) {
+        if (elArr[i] !== other[i]) {
+          counter += 1
+          if (counter > 1) {
+            break;
+          }
+          diff = i
+        } else {
+          k++
+        }
+      }
+
+    }
+  }
+  return diff
+}
