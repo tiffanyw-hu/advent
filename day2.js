@@ -46,7 +46,6 @@ function otherdaytwo(str) {
   arr.pop()
   let counter = 0
   let diff = null
-  console.log(diff)
   for (let i = 0; i < arr.length; i++) {
     let elArr = arr[i].split("")
     for (let j = 1; j < arr.length; j++) {
